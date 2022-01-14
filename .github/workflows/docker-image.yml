@@ -15,10 +15,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag fast_api:$(date +%s)
+    - run: docker build . --file Dockerfile --tag fast_api:$(date +%s)
     - name: Push to Docker Container Registry
-      run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u motianjun4 --password-stdin
-      run: docker push ghcr.io/motianjun4/fast_api:latest
+    - run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u motianjun4 --password-stdin
+    - run: docker push ghcr.io/motianjun4/fast_api:latest
       
     
 
