@@ -18,8 +18,10 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"
         integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
     <script>
-        // baseUrl = "http://cloud.tinchun.top"
-        baseUrl = 'http://localhost:8000'
+        baseUrl = window.location.href+"api/"
+        if (baseUrl.includes('github.io')){
+            baseUrl = "http://cloud.tinchun.top/"
+        }
     </script>
 </head>
 <body>
@@ -58,10 +60,7 @@
                         $('#neg').text(data.data.neg)
                         $('#neu').text(data.data.neu)
                         $('#pos').text(data.data.pos)
-                        $('#compound').text(data.data.compound)
-
-
-
+                        $('#compound').text(Math.abs(data.data.compound))
                     })
 
                 }
