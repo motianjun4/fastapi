@@ -9,6 +9,7 @@ If you want to deploy this project, just:
 1. Docker 
 
 ``` bash
+docker pull ghcr.io/motianjun4/fastapi:master
 docker run -p 8000:8000 ghcr.io/motianjun4/fastapi:master
 ```
 
