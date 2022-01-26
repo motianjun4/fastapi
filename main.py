@@ -27,6 +27,9 @@ async def sentiment_analysis(text: str = None):
         return response(ResponseType.ERROR, None, "Please specify query parameter text:str")
     return response(ResponseType.SUCCESS, analyzer.score(text))
 
-app.mount("/", StaticFiles(directory="static", html=True), name="static")
+@app.get("/loaderio-d5b4e8ab5d935530190ffd78ffc52665/")
+async def loader_verify():
+    return "loaderio-d5b4e8ab5d935530190ffd78ffc52665"
 
+app.mount("/", StaticFiles(directory="static", html=True), name="static")
 uvicorn.run(app, host="0.0.0.0", port=8000)
