@@ -1,13 +1,21 @@
-# My Playground
-Hi everyone, this is my playground.  
-I built this containerized service and set up a CI/CD workflow to automatically deploy to Cloud Run on Google Cloud Platform.  
-Demo Link: http://cloud.tinchun.top  
-Hope you all like this project!!  
+# CI/CD and IaC Demo Project
+In this project, I built a containerized service and set up a CI/CD workflow to automatically deploy to Cloud Run on Google Cloud Platform.  
+Demo Link: http://cloud.tinchun.top   
 ## Deployment
-If you want to deploy this project, just:
-### Prerequisites:
-1. Docker 
 
+### IaC (Infrastrcture as Code)
+In this project, I used Terraform to automatically deploy my CI/CD workflow and service to GCP.  
+This includes two steps:
+1. Create a Cloud Build trigger for CI/CD
+2. Create a Cloud Run resource to deploy this service.  
+Check [main.tf](./main.tf) for more details.  
+
+To deploy this project to GCP, simply: 
+1. Clone this repository to the [Cloud Shell](https://cloud.google.com/shell),
+2. Modify the [terraform.tfvars](./terraform.tfvars) file,
+3. Use `terraform init` and `terraform apply` to deploy it.
+### Docker
+If you want to deploy this project, just:
 ``` bash
 docker pull ghcr.io/motianjun4/fastapi:master
 docker run -p 8000:8000 ghcr.io/motianjun4/fastapi:master

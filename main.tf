@@ -1,3 +1,9 @@
+# ---------------------------------------------------------------------------------------------------------------------
+# Infrastructure as Code
+# Use this terraform code to deploy CI/CD workflow to Google Cloud Platform
+# Modify terraform.tfvars first, then run "terraform apply" to deploy.
+# ---------------------------------------------------------------------------------------------------------------------
+
 provider "google" {
   project = var.project
   region  = var.location
