@@ -1,0 +1,4 @@
+project = "project_id"
+service_name = "fastapi"
+github_owner = "your_name"
+github_repo = "your_repo"
