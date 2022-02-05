@@ -14,16 +14,16 @@ spec:
     spec:
       containers:
       - name: fastapi
-        image: ghcr.io/motianjun4/fastapi:master
+        image: motianjun4/fastapi:latest
         ports:
         - containerPort: 8000
         resources:
           requests:
-            memory: "64Mi"
-            cpu: "100m"
+            memory: "500Mi"
+            cpu: "250m"
           limits:
-            memory: "128Mi"
-            cpu: "200m"
+            memory: "1000Mi"
+            cpu: "500m"
 
 ---
 apiVersion: v1
@@ -46,7 +46,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   rules:
-    - host: "tianjunmo.com"
+    - host: "demo.com"
       http:
         paths:
           - path: /
