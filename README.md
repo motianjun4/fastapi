@@ -1,5 +1,5 @@
-# CI/CD and IaC Demo Project
-In this project, I built a containerized service and set up a CI/CD workflow to automatically deploy to Cloud Run on Google Cloud Platform.  
+# Tianjun Mo's Demo Project
+In this project, I built a containerized service and set up a CI/CD workflow to automatically deploy to Cloud Run on Google Cloud Platform. 
 Demo Link: http://cloud.tinchun.top   
 ## Deployment
 ### Kubernetes
