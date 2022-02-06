@@ -2,6 +2,15 @@
 In this project, I built a containerized service and set up a CI/CD workflow to automatically deploy to Cloud Run on Google Cloud Platform.  
 Demo Link: http://cloud.tinchun.top   
 ## Deployment
+### Kubernetes
+We can deploy this project to a Kubernetes cluster with:
+```bash
+kubectl apply -f https://raw.githubusercontent.com/motianjun4/fastapi/master/kubernetes-deployment.yaml
+
+# or clone the repository
+
+kubectl apply -f ./kubernetes-deployment.yaml
+```
 
 ### IaC (Infrastrcture as Code)
 In this project, I used Terraform to automatically deploy my CI/CD workflow and service to GCP.  
