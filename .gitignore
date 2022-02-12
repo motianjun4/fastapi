@@ -4,3 +4,4 @@ __pycache__
 .terraform*
 secret
 terraform.tfstate*
+launch.json
