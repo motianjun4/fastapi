@@ -5,7 +5,7 @@ import asyncio
 
 detector = None
 
-class LabelDetection:
+class ImageAnnotator:
     def __init__(self):
         self.client = vision.ImageAnnotatorClient()
 
@@ -21,7 +21,7 @@ class LabelDetection:
 
 async def async_init():
     global detector
-    detector = LabelDetection()
+    detector = ImageAnnotator()
     print("client inited")
 
 def init():
@@ -33,6 +33,6 @@ if __name__ == '__main__':
     import io
     with io.open("./wakeupcat.jpeg", 'rb') as image_file:
         content = image_file.read()
-    detector = LabelDetection()
+    detector = ImageAnnotator()
     labels = detector.get_labels(content)
     print(labels)
