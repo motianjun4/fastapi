@@ -1,13 +1,17 @@
-from fastapi import FastAPI, Form, UploadFile 
+from fastapi import FastAPI, Form, UploadFile, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
 import uvicorn
+import time
 
-from utils import ResponseType, response
+from utils.response import ResponseType, response
 from NLP.index import analyzer
 import CV.label_detection
+
+from utils.logs import logs
+
 CV.label_detection.init()
     
 app = FastAPI()
@@ -15,6 +19,22 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
 )
+
+@app.middleware("http")
+async def request_log(request: Request, call_next):
+    start_time = time.time()
+    response = await call_next(request)
+    response: Response
+    process_time = time.time() - start_time
+    response.headers["X-Process-Time"] = str(process_time)
+    logs.info({
+        "url": str(request.url),
+        "status_code": response.status_code,
+        "process_time": str(process_time*1000)+"ms",
+        "client_ip": request.client.host
+    })
+    
+    return response
 
 @app.get("/api/calc/add/")
 async def read_item(a: int = None, b: int = None):
@@ -43,5 +63,5 @@ async def label_detection(image:UploadFile = Form(...)):
 async def loader_verify():
     return "loaderio-d5b4e8ab5d935530190ffd78ffc52665"
 
-app.mount("/", StaticFiles(directory="static", html=True), name="static")
+app.mount("/", StaticFiles(directory="app/static", html=True), name="static")
 uvicorn.run(app, host="0.0.0.0", port=8000)
