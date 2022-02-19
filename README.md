@@ -1,6 +1,12 @@
 # Tianjun Mo's Demo Project
-In this project, I built a containerized service and set up a CI/CD workflow to automatically deploy to Cloud Run on Google Cloud Platform. 
-Demo Link: http://cloud.tinchun.top   
+In this project, I built a containerized service and set up a CI/CD workflow to automatically deploy to Cloud Run on Google Cloud Platform.   
+Demo Link: https://cloud.tinchun.top/   
+Demo Videos:  
+1. [CI/CD with GCP](https://youtu.be/4DDV8lzs6fY)
+2. [Kubernetes Deployment](https://youtu.be/BaViQE0WiMk)
+3. [Google's API](https://youtu.be/gKZ1hGeVIWg)
+
+
 ## Deployment
 ### Kubernetes
 We can deploy this project to a Kubernetes cluster with:
